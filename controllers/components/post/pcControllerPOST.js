@@ -14,9 +14,10 @@ exports.postPC = (req, res) => {
     const id_mouse = req.body.id_mouse;
     const id_keyboard = req.body.id_keyboard;
     const id_headset = req.body.id_headset;
+    const name_pc = req.body.name_pc;
 
     pool.query(
-        'INSERT INTO devices.pc (id_cpu, id_gpu, id_motherboard, id_ram, id_hdd, id_ssd, id_cooling, id_power, id_unit, id_monitor, id_mouse, id_keyboard, id_headset) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)',
+        'INSERT INTO devices.pc (id_cpu, id_gpu, id_motherboard, id_ram, id_hdd, id_ssd, id_cooling, id_power, id_unit, id_monitor, id_mouse, id_keyboard, id_headset, name_pc) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)',
         [
             id_cpu,
             id_gpu,
@@ -31,6 +32,7 @@ exports.postPC = (req, res) => {
             id_mouse,
             id_keyboard,
             id_headset,
+            name_pc,
         ],
         (error, results) => {
             if (error) {
