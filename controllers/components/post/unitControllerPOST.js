@@ -1,10 +1,13 @@
 const pool = require("../../../db");
 
-exports.getUnit = (req, res) => {
-    pool.query('SELECT id_unit, name_unit, quantity_unit ORDER BY id_ssd', (error, results) => {
+exports.pustUnit = (req, res) => {
+    const name_unit = req.body.name_unit;
+    const quantity_unit = req.body.quantity_unit;
+
+    pool.query('INSERT INTO components.unit (name_unit, quantity_unit) values($1, $2) ', [name_unit, quantity_unit], (error, results) => {
         if (error) {
-            throw error
+            throw error;
         }
         res.status(200).json(results.rows);
-    })
-}
+    });
+};

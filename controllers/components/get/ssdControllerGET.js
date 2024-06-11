@@ -1,7 +1,7 @@
 const pool = require("../../../db");
 
-exports.getSsd = (req, res) => {
-    pool.query('SELECT id_ssd, name_ssd, quantity_ssd ORDER BY id_ssd', (error, results) => {
+exports.getSSD = (req, res) => {
+    pool.query('SELECT id_ssd, name_ssd, quantity_ssd from components.ssd ORDER BY id_ssd', (error, results) => {
         if (error) {
             throw error
         }

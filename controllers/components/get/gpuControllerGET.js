@@ -1,7 +1,7 @@
 const pool = require("../../../db");
 
-exports.getGpu = (req, res) => {
-    pool.query('SELECT id_gpu, name_gpu, quantity_gpu ORDER BY id_gpu', (error, results) => {
+exports.getGPU = (req, res) => {
+    pool.query('SELECT id_gpu, name_gpu, quantity_gpu from components.gpu ORDER BY id_gpu', (error, results) => {
         if (error) {
             throw error
         }

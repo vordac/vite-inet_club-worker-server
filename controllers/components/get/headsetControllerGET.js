@@ -1,7 +1,7 @@
 const pool = require("../../../db");
 
 exports.getHeadset = (req, res) => {
-    pool.query('SELECT id_headset, name_headset, quantity_headset ORDER BY id_headset', (error, results) => {
+    pool.query('SELECT id_headset, name_headset, quantity_headset from components.headset ORDER BY id_headset', (error, results) => {
         if (error) {
             throw error
         }

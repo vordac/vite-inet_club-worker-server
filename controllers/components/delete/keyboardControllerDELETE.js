@@ -1,9 +1,9 @@
 const pool = require("../../../db");
 
-exports.deleteCooling = (req, res) => {
-    const id_cooling = req.params.id_cooling;
+exports.deleteKeyboard = (req, res) => {
+    const id_keyboard = req.params.id_keyboard;
 
-    pool.query('DELETE from components.cooling where id_cooling = $1', [id_cooling], (error, results) => {
+    pool.query('DELETE from components.keyboard where id_keyboard = $1', [id_keyboard], (error, results) => {
         if (error) {
             throw error;
         }

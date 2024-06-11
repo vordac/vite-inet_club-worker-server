@@ -1,9 +1,9 @@
 const pool = require("../../../db");
 
-exports.deleteCpu = (req, res) => {
+exports.deleteCPU = (req, res) => {
     const id_cpu = req.params.id_cpu;
 
-    pool.query('DELETE from components.cooling where id_cpu = $1', [id_cpu], (error, results) => {
+    pool.query('DELETE from components.cpu where id_cpu = $1', [id_cpu], (error, results) => {
         if (error) {
             throw error;
         }

@@ -1,9 +1,9 @@
 const pool = require("../../../db");
 
-exports.deleteCooling = (req, res) => {
-    const id_cooling = req.params.id_cooling;
+exports.deleteMouse = (req, res) => {
+    const id_mouse = req.params.id_mouse;
 
-    pool.query('DELETE from components.cooling where id_cooling = $1', [id_cooling], (error, results) => {
+    pool.query('DELETE from components.mouse where id_mouse = $1', [id_mouse], (error, results) => {
         if (error) {
             throw error;
         }

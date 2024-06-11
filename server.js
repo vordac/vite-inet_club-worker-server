@@ -10,7 +10,7 @@ app.use(cors());
 dotenv.config();
 
 // IMPORT COMPONENTS GET
-const computerControllerGET = require('./controllers/components/get/computerControllerGET');
+const pcControllerGET = require('./controllers/components/get/pcControllerGET');
 const consoleControllerGET = require('./controllers/components/get/consoleControllerGET');
 const coolingControllerGET = require('./controllers/components/get/coolingControllerGET');
 const cpuControllerGET = require('./controllers/components/get/cpuControllerGET');
@@ -27,7 +27,7 @@ const ssdControllerGET = require('./controllers/components/get/ssdControllerGET'
 const unitControllerGET = require('./controllers/components/get/unitControllerGET');
 
 // IMPORT COMPONENTS POST
-const computerControllerPOST = require('./controllers/components/post/computerControllerPOST');
+const pcControllerPOST = require('./controllers/components/post/pcControllerPOST');
 const consoleControllerPOST = require('./controllers/components/post/consoleControllerPOST');
 const coolingControllerPOST = require('./controllers/components/post/coolingControllerPOST');
 const cpuControllerPOST = require('./controllers/components/post/cpuControllerPOST');
@@ -44,7 +44,7 @@ const ssdControllerPOST = require('./controllers/components/post/ssdControllerPO
 const unitControllerPOST = require('./controllers/components/post/unitControllerPOST');
 
 // IMPORT COMPONENTS DELETE
-const computerControllerDELETE = require('./controllers/components/delete/computerControllerDELETE');
+const pcControllerDELETE = require('./controllers/components/delete/pcControllerDELETE');
 const consoleControllerDELETE = require('./controllers/components/delete/consoleControllerDELETE');
 const coolingControllerDELETE = require('./controllers/components/delete/coolingControllerDELETE');
 const cpuControllerDELETE = require('./controllers/components/delete/cpuControllerDELETE');
@@ -75,55 +75,55 @@ pool.connect((err, client, done) => {
 });
 
 // GET endpoints
-app.get('/get-computer', computerControllerGET.getComputer);
+app.get('/get-pc', pcControllerGET.getPC);
 app.get('/get-console', consoleControllerGET.getConsole);
 app.get('/get-cooling', coolingControllerGET.getCooling);
-app.get('/get-cpu', cpuControllerGET.getCpu);
-app.get('/get-gpu', gpuControllerGET.getGpu);
-app.get('/get-hdd', hddControllerGET.getHdd);
+app.get('/get-cpu', cpuControllerGET.getCPU);
+app.get('/get-gpu', gpuControllerGET.getGPU);
+app.get('/get-hdd', hddControllerGET.getHDD);
 app.get('/get-headset', headsetControllerGET.getHeadset);
 app.get('/get-keyboard', keyboardControllerGET.getKeyboard);
 app.get('/get-monitor', monitorControllerGET.getMonitor);
 app.get('/get-motherboard', motherboardControllerGET.getMotherboard);
 app.get('/get-mouse', mouseControllerGET.getMouse);
 app.get('/get-power', powerControllerGET.getPower);
-app.get('/get-ram', ramControllerGET.getRam);
-app.get('/get-ssd', ssdControllerGET.getSsd);
+app.get('/get-ram', ramControllerGET.getRAM);
+app.get('/get-ssd', ssdControllerGET.getSSD);
 app.get('/get-unit', unitControllerGET.getUnit);
 
 // POST endpoints
-app.post('/post-computer', computerControllerGET.getComputer);
-app.post('/post-console', consoleControllerGET.getConsole);
+app.post('/post-pc', pcControllerPOST.postPC);
+app.post('/post-console', consoleControllerPOST.postConsole);
 app.post('/post-cooling', coolingControllerPOST.postCooling);
-app.post('/post-cpu', cpuControllerGET.getCpu);
-app.post('/post-gpu', gpuControllerGET.getGpu);
-app.post('/post-hdd', hddControllerGET.getHdd);
-app.post('/post-headset', headsetControllerGET.getHeadset);
-app.post('/post-keyboard', keyboardControllerGET.getKeyboard);
-app.post('/post-monitor', monitorControllerGET.getMonitor);
-app.post('/post-motherboard', motherboardControllerGET.getMotherboard);
-app.post('/post-mouse', mouseControllerGET.getMouse);
-app.post('/post-power', powerControllerGET.getPower);
-app.post('/post-ram', ramControllerGET.getRam);
-app.post('/post-ssd', ssdControllerGET.getSsd);
-app.post('/post-unit', unitControllerGET.getUnit);
+app.post('/post-cpu', cpuControllerPOST.postCPU);
+app.post('/post-gpu', gpuControllerPOST.postGPU);
+app.post('/post-hdd', hddControllerPOST.postHDD);
+app.post('/post-headset', headsetControllerPOST.postHeadset);
+app.post('/post-keyboard', keyboardControllerPOST.postKeyboard);
+app.post('/post-monitor', monitorControllerPOST.postMonitor);
+app.post('/post-motherboard', motherboardControllerPOST.postMotherboard);
+app.post('/post-mouse', mouseControllerPOST.postMouse);
+app.post('/post-power', powerControllerPOST.postPower);
+app.post('/post-ram', ramControllerPOST.postRAM);
+app.post('/post-ssd', ssdControllerPOST.postSSD);
+app.post('/post-unit', unitControllerPOST.pustUnit);
 
 // DELETE endpoints
-// app.delete('/delete-computer', computerControllerDELETE.deleteComputer);
-// app.delete('/delete-console', consoleControllerDELETE.deleteConsole);
+app.delete('/delete-pc/:id_pc', pcControllerDELETE.deletePC);
+app.delete('/delete-console/:id_console', consoleControllerDELETE.deleteConsole);
 app.delete('/delete-cooling/:id_cooling', coolingControllerDELETE.deleteCooling);
-// app.delete('/delete-cpu', cpuControllerDELETE.deleteCpu);
-// app.delete('/delete-gpu', gpuControllerDELETE.deleteCooling);
-// app.delete('/delete-hdd', hddControllerDELETE.getHdd);
-// app.delete('/delete-headset', headsetControllerDELETE.getHeadset);
-// app.delete('/delete-keyboard', keyboardControllerDELETE.getKeyboard);
-// app.delete('/delete-monitor', monitorControllerDELETE.getMonitor);
-// app.delete('/delete-motherboard', motherboardControllerDELETE.getMotherboard);
-// app.delete('/delete-mouse', mouseControllerDELETE.getMouse);
-// app.delete('/delete-power', powerControllerDELETE.getPower);
-// app.delete('/delete-ram', ramControllerDELETE.getRam);
-// app.delete('/delete-ssd', ssdControllerDELETE.getSsd);
-// app.delete('/delete-unit', unitControllerDELETE.getUnit);
+app.delete('/delete-cpu/:id_cpu', cpuControllerDELETE.deleteCPU);
+app.delete('/delete-gpu/:id_gpu', gpuControllerDELETE.deleteGPU);
+app.delete('/delete-hdd/:id_hdd', hddControllerDELETE.deleteHDD);
+app.delete('/delete-headset/:id_headset', headsetControllerDELETE.deleteHeadset);
+app.delete('/delete-keyboard/:id_keyboard', keyboardControllerDELETE.deleteKeyboard);
+app.delete('/delete-monitor/:id_monitor', monitorControllerDELETE.deleteMonitor);
+app.delete('/delete-motherboard/:id_motherboard', motherboardControllerDELETE.deleteMotherboard);
+app.delete('/delete-mouse/:id_mouse', mouseControllerDELETE.deleteMouse);
+app.delete('/delete-power/:id_power', powerControllerDELETE.deletePower);
+app.delete('/delete-ram/:id_ram', ramControllerDELETE.deleteRAM);
+app.delete('/delete-ssd/:id_ssd', ssdControllerDELETE.deleteSSD);
+app.delete('/delete-unit/:id_unit', unitControllerDELETE.deleteUnit);
 
 const PORT = process.env.PORT || 5001;
 
