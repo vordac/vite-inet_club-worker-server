@@ -1,15 +1,31 @@
 const pool = require("../../../db");
 
 exports.postReservation = (req, res) => {
-    const name_console = req.body.name_console;
-    const model_console = req.body.model_console;
-    const quantity_console = req.body.quantity_console;
+    const id_seat = req.body.id_seat;
+    const phone = req.body.phone;
+    const time_start = req.body.time_start;
+    const hours = req.body.hours;
+    const payment = req.body.payment;
+    const price = req.body.price;
+    const time_end = req.body.time_end;
+    const name_client = req.body.name_client;
+    const id_tariff = req.body.id_tariff;
+    const people = req.body.people;
+    const price_tariff = req.body.price_tariff;
 
-    pool.query('INSERT INTO devices.console (name_console, model_console, quantity_console) values($1, $2, $3) ',
+    pool.query('INSERT INTO service.reservation (id_seat, phone, time_start, hours, payment, price, time_end, name_client, id_tariff, people, price_tariff) values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) ',
         [
-            name_console,
-            model_console,
-            quantity_console
+            id_seat,
+            phone,
+            time_start,
+            hours,
+            payment,
+            price,
+            time_end,
+            name_client,
+            id_tariff,
+            people,
+            price_tariff
         ],
         (error, results) => {
             if (error) {

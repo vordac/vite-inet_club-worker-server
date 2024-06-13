@@ -1,15 +1,13 @@
 const pool = require("../../../db");
 
 exports.postDevice = (req, res) => {
-    const name_console = req.body.name_console;
-    const model_console = req.body.model_console;
-    const quantity_console = req.body.quantity_console;
+    const name_device = req.body.name_device;
+    const type_device = req.body.type_device;
 
-    pool.query('INSERT INTO devices.console (name_console, model_console, quantity_console) values($1, $2, $3) ',
+    pool.query('INSERT INTO service.device (name_device, type_device) values($1, $2) ',
         [
-            name_console,
-            model_console,
-            quantity_console
+            name_device,
+            type_device
         ],
         (error, results) => {
             if (error) {

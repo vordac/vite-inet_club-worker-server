@@ -16,6 +16,7 @@ const notificationControllerGET = require('./controllers/services/get/notificati
 const reservationControllerGET = require('./controllers/services/get/reservationControllerGET');
 const seatControllerGET = require('./controllers/services/get/seatControllerGET');
 const tariffControllerGET = require('./controllers/services/get/tariffControllerGET');
+const tariffPriceControllerGET = require('./controllers/services/get/tariffPriceControllerGET');
 
 // IMPORT COMPONENTS POST
 // ADMIN
@@ -112,6 +113,7 @@ app.get('/get-notification', notificationControllerGET.getNotification);
 app.get('/get-reservation', reservationControllerGET.getReservation);
 app.get('/get-seat', seatControllerGET.getSeat);
 app.get('/get-tariff', tariffControllerGET.getTariff);
+app.get('/get-tariff-price', tariffPriceControllerGET.getTariff);
 
 // POST endpoints
 // ADMIN
