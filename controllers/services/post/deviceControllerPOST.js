@@ -1,6 +1,6 @@
 const pool = require("../../../db");
 
-exports.postConsole = (req, res) => {
+exports.postDevice = (req, res) => {
     const name_console = req.body.name_console;
     const model_console = req.body.model_console;
     const quantity_console = req.body.quantity_console;

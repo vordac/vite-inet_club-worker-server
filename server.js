@@ -10,6 +10,34 @@ app.use(cors());
 dotenv.config();
 
 // IMPORT COMPONENTS GET
+// ADMIN
+const deviceControllerGET = require('./controllers/services/get/deviceControllerGET');
+const notificationControllerGET = require('./controllers/services/get/notificationControllerGET');
+const reservationControllerGET = require('./controllers/services/get/reservationControllerGET');
+const seatControllerGET = require('./controllers/services/get/seatControllerGET');
+const tariffControllerGET = require('./controllers/services/get/tariffControllerGET');
+
+// IMPORT COMPONENTS POST
+// ADMIN
+const deviceControllerPOST = require('./controllers/services/post/deviceControllerPOST');
+const reservationControllerPOST = require('./controllers/services/post/reservationControllerPOST');
+const seatControllerPOST = require('./controllers/services/post/seatControllerPOST');
+const tariffControllerPOST = require('./controllers/services/post/tariffControllerPOST');
+
+// IMPORT COMPONENTS DELETE
+// ADMIN
+const deviceControllerDELETE = require('./controllers/services/delete/deviceControllerDELETE');
+const notificationControllerDELETE = require('./controllers/services/delete/notificationControllerDELETE');
+const reservationControllerDELETE = require('./controllers/services/delete/reservationControllerDELETE');
+const seatControllerDELETE = require('./controllers/services/delete/seatControllerDELETE');
+const tariffControllerDELETE = require('./controllers/services/delete/tariffControllerDELETE');
+
+// IMPORT COMPONENTS PUT
+// ADMIN
+const seatControllerPUT = require('./controllers/services/put/seatControllerPUT');
+
+// IMPORT COMPONENTS GET
+// SYSADMIN
 const pcControllerGET = require('./controllers/components/get/pcControllerGET');
 const consoleControllerGET = require('./controllers/components/get/consoleControllerGET');
 const coolingControllerGET = require('./controllers/components/get/coolingControllerGET');
@@ -27,6 +55,7 @@ const ssdControllerGET = require('./controllers/components/get/ssdControllerGET'
 const unitControllerGET = require('./controllers/components/get/unitControllerGET');
 
 // IMPORT COMPONENTS POST
+// SYSADMIN
 const pcControllerPOST = require('./controllers/components/post/pcControllerPOST');
 const consoleControllerPOST = require('./controllers/components/post/consoleControllerPOST');
 const coolingControllerPOST = require('./controllers/components/post/coolingControllerPOST');
@@ -44,6 +73,7 @@ const ssdControllerPOST = require('./controllers/components/post/ssdControllerPO
 const unitControllerPOST = require('./controllers/components/post/unitControllerPOST');
 
 // IMPORT COMPONENTS DELETE
+// SYSADMIN
 const pcControllerDELETE = require('./controllers/components/delete/pcControllerDELETE');
 const consoleControllerDELETE = require('./controllers/components/delete/consoleControllerDELETE');
 const coolingControllerDELETE = require('./controllers/components/delete/coolingControllerDELETE');
@@ -75,6 +105,34 @@ pool.connect((err, client, done) => {
 });
 
 // GET endpoints
+// ADMIN
+app.get('/get-device', deviceControllerGET.getDevice);
+app.get('/get-notification', notificationControllerGET.getNotification);
+app.get('/get-reservation', reservationControllerGET.getReservation);
+app.get('/get-seat', seatControllerGET.getSeat);
+app.get('/get-tariff', tariffControllerGET.getTariff);
+
+// POST endpoints
+// ADMIN
+app.post('/post-device', deviceControllerPOST.postDevice);
+app.post('/post-reservation', reservationControllerPOST.postReservation);
+app.post('/post-seat', seatControllerPOST.postSeat);
+app.post('/post-tariff', tariffControllerPOST.postTariff);
+
+// DELETE endpoints
+// ADMIN
+app.delete('/delete-device/:id_device', deviceControllerDELETE.deleteDevice);
+app.delete('/delete-notification/:id_notification', notificationControllerDELETE.deleteNotification);
+app.delete('/delete-reservation/:id_reservation', reservationControllerDELETE.deleteReservation);
+app.delete('/delete-seat/:id_seat', seatControllerDELETE.deleteSeat);
+app.delete('/delete-tariff/:id_tariff', tariffControllerDELETE.deleteTariff);
+
+// PUT endpoints
+// ADMIN
+app.put('/put-seat/:status_seat_new/:id_seat', seatControllerPUT.putSeat);
+
+// GET endpoints
+// SYSADMIN
 app.get('/get-pc', pcControllerGET.getPC);
 app.get('/get-console', consoleControllerGET.getConsole);
 app.get('/get-cooling', coolingControllerGET.getCooling);
@@ -91,7 +149,9 @@ app.get('/get-ram', ramControllerGET.getRAM);
 app.get('/get-ssd', ssdControllerGET.getSSD);
 app.get('/get-unit', unitControllerGET.getUnit);
 
+
 // POST endpoints
+// SYSADMIN
 app.post('/post-pc', pcControllerPOST.postPC);
 app.post('/post-console', consoleControllerPOST.postConsole);
 app.post('/post-cooling', coolingControllerPOST.postCooling);
@@ -109,6 +169,7 @@ app.post('/post-ssd', ssdControllerPOST.postSSD);
 app.post('/post-unit', unitControllerPOST.pustUnit);
 
 // DELETE endpoints
+// SYSADMIN
 app.delete('/delete-pc/:id_pc', pcControllerDELETE.deletePC);
 app.delete('/delete-console/:id_console', consoleControllerDELETE.deleteConsole);
 app.delete('/delete-cooling/:id_cooling', coolingControllerDELETE.deleteCooling);
