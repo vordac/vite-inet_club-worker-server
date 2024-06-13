@@ -35,6 +35,7 @@ const tariffControllerDELETE = require('./controllers/services/delete/tariffCont
 // IMPORT COMPONENTS PUT
 // ADMIN
 const seatControllerPUT = require('./controllers/services/put/seatControllerPUT');
+const notificationControllerPUT = require('./controllers/services/put/notificationControllerPUT');
 
 // IMPORT COMPONENTS GET
 // SYSADMIN
@@ -130,6 +131,7 @@ app.delete('/delete-tariff/:id_tariff', tariffControllerDELETE.deleteTariff);
 // PUT endpoints
 // ADMIN
 app.put('/put-seat/:status_seat_new/:id_seat', seatControllerPUT.putSeat);
+app.put('/put-notification/:status_new/:id_notification', notificationControllerPUT.putNotification);
 
 // GET endpoints
 // SYSADMIN
